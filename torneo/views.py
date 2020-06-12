@@ -32,7 +32,8 @@ def equipoCapitan(request):
         capitan = get_object_or_404(Capitan, pk=request.user.pk)
         faseDeGrupos = len(Fase.objects.filter(user__exact=capitan,tipoEtapas__exact="Grupo"))
         return render(request,'torneo/equipoCapitan.html',{'capitan':capitan,'fase':faseDeGrupos})
-   
+def helloworld(request):
+    return HttpResponse("Hello world bitches")   
 def fotos(request):
     return HttpResponse("Estamos en consutruccion")
 
@@ -49,6 +50,7 @@ def empezarTorneo(request):
         return redirect("/torneo/equipo/")
     else:
         return HttpResponse("Ey no puedes hacer eso")
+
 
 @login_required
 def finalizarTorneo(request):
